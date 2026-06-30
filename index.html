@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Moritz Lumma — Transaction Diligence × Agentic AI</title>
+
+<!--
+====================================================================
+  MORITZ — edit anything in [SQUARE BRACKETS]; the rest is from your CV.
+  Fill in:
+   1. LinkedIn URL   (search "linkedin.com/in")
+   2. CV link        (search "CV.pdf" — commit your PDF beside this file)
+   3. Project 1      — the agentic build. Add a repo/demo link once it exists.
+                       THIS is the one worth actually building, even small.
+   4. Project stacks — confirm the libraries you used.
+   5. Footer location.
+  Deploy: commit as index.html to a repo named  lumma.github.io
+  (or any repo with Pages enabled) and you're live.
+====================================================================
+-->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --paper:#F2F3F6; --paper-2:#FBFBFD;
+    --ink:#0E1016; --ink-soft:#2A2E3A; --mute:#6B7180; --line:#E1E3EA;
+    --cobalt:#2236FF; --cobalt-lite:#7d8bff; --cobalt-deep:#1A2AC9;
+    --pos:#10A37F; --neg:#E5484D;
+    --maxw:1180px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0;background:var(--paper);color:var(--ink);
+    font-family:"IBM Plex Sans",system-ui,sans-serif;font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;}
+  a{color:inherit;text-decoration:none;}
+  ::selection{background:var(--cobalt);color:#fff;}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px;}
+  .mono{font-family:"IBM Plex Mono",monospace;}
+  .eyebrow{font-family:"IBM Plex Mono",monospace;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--cobalt);font-weight:500;}
+
+  /* NAV */
+  .nav{position:sticky;top:0;z-index:50;background:rgba(242,243,246,.82);backdrop-filter:saturate(140%) blur(10px);border-bottom:1px solid var(--line);}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:66px;}
+  .brand{display:flex;align-items:center;gap:11px;font-weight:600;letter-spacing:-.01em;}
+  .brand .mark{width:14px;height:14px;background:var(--cobalt);border-radius:3px;transform:rotate(45deg);}
+  .nav-links{display:flex;align-items:center;gap:28px;}
+  .nav-links a{font-size:14.5px;color:var(--ink-soft);transition:color .2s;}
+  .nav-links a:hover{color:var(--cobalt);}
+  .nav-cta{font-family:"IBM Plex Mono",monospace;font-size:13px;border:1px solid var(--ink);border-radius:999px;padding:8px 16px;color:var(--ink);transition:all .2s;}
+  .nav-cta:hover{background:var(--ink);color:var(--paper);}
+
+  /* HERO */
+  .hero{padding:74px 0 60px;}
+  .hero-grid{display:grid;grid-template-columns:1.02fr .98fr;gap:52px;align-items:center;}
+  .hero h1{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:clamp(40px,6.2vw,74px);line-height:.98;letter-spacing:-.025em;margin:18px 0 0;}
+  .hero h1 .accent{color:var(--cobalt);}
+  .hero-sub{margin:24px 0 0;max-width:31em;font-size:18px;color:var(--ink-soft);}
+  .hero-sub b{color:var(--ink);font-weight:600;}
+  .stats{display:flex;gap:14px;margin-top:34px;flex-wrap:wrap;}
+  .stat{border:1px solid var(--line);background:var(--paper-2);border-radius:12px;padding:14px 16px;min-width:118px;}
+  .stat .n{font-family:"IBM Plex Mono",monospace;font-size:26px;font-weight:600;letter-spacing:-.02em;}
+  .stat .l{font-size:12px;color:var(--mute);margin-top:2px;line-height:1.3;}
+
+  .reveal{opacity:0;transform:translateY(16px);animation:rise .8s cubic-bezier(.2,.7,.2,1) forwards;}
+  .d1{animation-delay:.05s;} .d2{animation-delay:.15s;} .d3{animation-delay:.25s;} .d4{animation-delay:.35s;}
+  @keyframes rise{to{opacity:1;transform:translateY(0);}}
+
+  /* SIGNATURE CARD — agentic pipeline */
+  .flow-card{background:var(--ink);color:var(--paper);border-radius:18px;padding:24px 22px 18px;box-shadow:0 26px 60px -28px rgba(14,16,22,.6);}
+  .flow-head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:8px;}
+  .flow-head .t{font-family:"IBM Plex Mono",monospace;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#aeb4c4;}
+  .flow-head .u{font-family:"IBM Plex Mono",monospace;font-size:12px;color:#7d8498;}
+  .flow svg{width:100%;height:auto;display:block;}
+  .flow .orch{opacity:0;animation:fade .6s ease .15s forwards;}
+  .flow .node{opacity:0;transform-box:fill-box;animation:pop .55s cubic-bezier(.2,.8,.2,1) forwards;}
+  .flow .n0{animation-delay:.30s;} .flow .n1{animation-delay:.42s;} .flow .n2{animation-delay:.54s;} .flow .n3{animation-delay:.66s;}
+  .flow .edge{opacity:0;animation:fade .5s ease forwards;}
+  .flow .e0{animation-delay:.40s;} .flow .e1{animation-delay:.52s;} .flow .e2{animation-delay:.64s;} .flow .e3{animation-delay:.78s;} .flow .e4{animation-delay:.86s;}
+  @keyframes fade{to{opacity:1;}}
+  @keyframes pop{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);}}
+  .flow .ntitle{font-family:"IBM Plex Mono",monospace;font-size:9.5px;font-weight:600;letter-spacing:.04em;fill:var(--cobalt-lite);}
+  .flow .ndesc{font-family:"IBM Plex Mono",monospace;font-size:8.4px;fill:#9aa0b2;}
+  .flow-foot{font-size:12px;color:#8b91a4;margin-top:10px;line-height:1.45;}
+
+  /* SECTION SHELL */
+  .section{padding:66px 0;border-top:1px solid var(--line);}
+  .sec-head{max-width:48em;margin-bottom:42px;}
+  .sec-head h2{font-family:"Bricolage Grotesque",sans-serif;font-weight:700;font-size:clamp(28px,3.6vw,40px);letter-spacing:-.02em;line-height:1.05;margin:12px 0 0;}
+  .sec-head p{color:var(--ink-soft);margin:14px 0 0;font-size:17px;}
+
+  /* EXPERTISE */
+  .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:16px;overflow:hidden;}
+  .cap{background:var(--paper-2);padding:26px 24px;transition:background .25s;}
+  .cap:hover{background:#fff;}
+  .cap .k{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--cobalt);}
+  .cap h3{font-family:"Bricolage Grotesque",sans-serif;font-weight:600;font-size:20px;letter-spacing:-.01em;margin:10px 0 8px;}
+  .cap p{margin:0;font-size:15px;color:var(--ink-soft);line-height:1.55;}
+
+  /* PROJECTS */
+  .deals{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+  .deal{background:var(--paper-2);border:1px solid var(--line);border-radius:16px;padding:26px;transition:transform .25s,box-shadow .25s,border-color .25s;}
+  .deal.flag{grid-column:1 / -1;background:linear-gradient(180deg,#fff,var(--paper-2));border-color:#c9cffb;}
+  .deal:hover{transform:translateY(-3px);box-shadow:0 18px 40px -26px rgba(14,16,22,.45);border-color:#cfd3df;}
+  .tags{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:16px;}
+  .tag{font-family:"IBM Plex Mono",monospace;font-size:11px;padding:4px 10px;border-radius:999px;background:#eceef4;color:var(--ink-soft);}
+  .tag.lead{background:var(--cobalt);color:#fff;}
+  .deal h3{font-family:"Bricolage Grotesque",sans-serif;font-weight:600;font-size:22px;letter-spacing:-.01em;margin:0 0 6px;}
+  .deal .role{font-family:"IBM Plex Mono",monospace;font-size:12.5px;color:var(--mute);margin-bottom:12px;}
+  .deal p{margin:0;font-size:15.5px;color:var(--ink-soft);}
+  .deal .finding{margin-top:14px;padding-top:14px;border-top:1px solid var(--line);font-size:14.5px;}
+  .deal .finding b{color:var(--cobalt);font-family:"IBM Plex Mono",monospace;font-weight:600;}
+
+  /* EXPERIENCE TIMELINE */
+  .timeline{border-top:1px solid var(--line);}
+  .tl{display:grid;grid-template-columns:170px 1fr;gap:26px;padding:24px 0;border-bottom:1px solid var(--line);}
+  .tl-when{font-family:"IBM Plex Mono",monospace;font-size:12.5px;color:var(--mute);line-height:1.5;}
+  .tl-what h3{font-family:"Bricolage Grotesque",sans-serif;font-weight:600;font-size:20px;letter-spacing:-.01em;margin:0 0 3px;}
+  .tl-what .org{font-family:"IBM Plex Mono",monospace;font-size:12.5px;color:var(--cobalt);margin-bottom:9px;}
+  .tl-what p{margin:0;font-size:15.5px;color:var(--ink-soft);}
+
+  /* TOOLKIT + EDUCATION */
+  .two-col{display:grid;grid-template-columns:1fr 1fr;gap:44px;}
+  .stack h4{font-family:"IBM Plex Mono",monospace;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--mute);margin:0 0 16px;}
+  .chips{display:flex;flex-wrap:wrap;gap:9px;}
+  .chip{border:1px solid var(--line);background:var(--paper-2);border-radius:999px;padding:9px 15px;font-size:14.5px;}
+  .creds{margin:0;padding:0;}
+  .creds li{list-style:none;padding:14px 0;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:18px;align-items:baseline;}
+  .creds .c-name{font-weight:500;}
+  .creds .c-meta{font-family:"IBM Plex Mono",monospace;font-size:13px;color:var(--mute);text-align:right;}
+
+  /* CONTACT */
+  .contact{background:var(--ink);color:var(--paper);border-radius:22px;padding:60px 48px;margin:66px auto 0;max-width:var(--maxw);}
+  .contact .eyebrow{color:var(--cobalt-lite);}
+  .contact h2{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:clamp(30px,4.4vw,52px);letter-spacing:-.025em;line-height:1;margin:16px 0 0;}
+  .contact h2 .accent{color:var(--cobalt-lite);}
+  .contact-row{display:flex;flex-wrap:wrap;gap:14px;margin-top:34px;}
+  .c-btn{font-family:"IBM Plex Mono",monospace;font-size:14px;border-radius:999px;padding:13px 22px;transition:all .2s;}
+  .c-btn.solid{background:var(--cobalt);color:#fff;}
+  .c-btn.solid:hover{background:#fff;color:var(--ink);}
+  .c-btn.ghost{border:1px solid #444a5c;color:var(--paper);}
+  .c-btn.ghost:hover{border-color:var(--paper);background:rgba(255,255,255,.06);}
+
+  footer{padding:40px 0 56px;color:var(--mute);font-size:13px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+  footer .mono{font-size:12px;}
+
+  a:focus-visible,button:focus-visible{outline:3px solid var(--cobalt);outline-offset:3px;border-radius:6px;}
+
+  @media(max-width:880px){
+    .hero-grid{grid-template-columns:1fr;gap:40px;}
+    .grid-3{grid-template-columns:1fr;}
+    .deals{grid-template-columns:1fr;}
+    .two-col{grid-template-columns:1fr;gap:34px;}
+    .tl{grid-template-columns:1fr;gap:6px;}
+    .nav-links a:not(.nav-cta){display:none;}
+    .contact{padding:46px 26px;border-radius:18px;}
+  }
+  @media(prefers-reduced-motion:reduce){
+    .reveal,.flow .orch,.flow .node,.flow .edge{animation:none;opacity:1;transform:none;}
+    html{scroll-behavior:auto;}
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="#top"><span class="mark"></span>Moritz Lumma</a>
+    <nav class="nav-links">
+      <a href="#expertise">What I bring</a>
+      <a href="#work">Projects</a>
+      <a href="#experience">Experience</a>
+      <a class="nav-cta" href="#contact">Get in touch</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="eyebrow reveal d1">Transaction Diligence × Agentic AI</p>
+        <h1 class="reveal d2">I automate<br>diligence with<br><span class="accent">agentic AI.</span></h1>
+        <p class="hero-sub reveal d3">
+          I'm <b>Moritz Lumma</b> — a data scientist with a transaction-services background. At
+          Deloitte I worked across audit, post-merger integration and transformation; now I'm
+          finishing an <b>MSc in Data Analytics &amp; AI</b> and building automation that takes the
+          grunt work off the deal team.
+        </p>
+        <div class="stats reveal d4">
+          <div class="stat"><div class="n">3.7</div><div class="l">MSc GPA · Data<br>Analytics &amp; AI</div></div>
+          <div class="stat"><div class="n">1st</div><div class="l">Crédit Agricole<br>ML challenge</div></div>
+          <div class="stat"><div class="n">3×</div><div class="l">Deloitte · audit<br>→ transaction</div></div>
+        </div>
+      </div>
+
+      <!-- SIGNATURE: AGENTIC DILIGENCE PIPELINE -->
+      <div class="flow-card reveal d3" aria-label="An agentic pipeline automating transaction-diligence steps under human review">
+        <div class="flow-head">
+          <span class="t">Agentic diligence pipeline</span>
+          <span class="u">concept</span>
+        </div>
+        <div class="flow">
+          <svg viewBox="0 0 600 360" role="img">
+            <defs>
+              <marker id="ah" markerWidth="8" markerHeight="8" refX="5" refY="3" orient="auto">
+                <path d="M0,0 L6,3 L0,6 Z" fill="#6f7dff"></path>
+              </marker>
+            </defs>
+
+            <!-- orchestrator -->
+            <g class="orch">
+              <rect x="40" y="46" width="520" height="42" rx="9" fill="#2236FF"></rect>
+              <text x="300" y="72" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="13" letter-spacing="1.5" fill="#fff">AGENTIC&#160;&#160;ORCHESTRATOR</text>
+            </g>
+
+            <!-- coordination drop-lines -->
+            <line class="edge e0" x1="90"  y1="88" x2="90"  y2="150" stroke="#454b60" stroke-dasharray="2 3"></line>
+            <line class="edge e0" x1="224" y1="88" x2="224" y2="150" stroke="#454b60" stroke-dasharray="2 3"></line>
+            <line class="edge e0" x1="358" y1="88" x2="358" y2="150" stroke="#454b60" stroke-dasharray="2 3"></line>
+            <line class="edge e0" x1="492" y1="88" x2="492" y2="150" stroke="#454b60" stroke-dasharray="2 3"></line>
+
+            <!-- input arrow -->
+            <line class="edge e0" x1="6" y1="196" x2="26" y2="196" stroke="#6f7dff" stroke-width="1.4" marker-end="url(#ah)"></line>
+
+            <!-- nodes -->
+            <g class="node n0">
+              <rect x="40"  y="150" width="100" height="92" rx="12" fill="#181c27" stroke="#2c3242"></rect>
+              <text class="ntitle" x="90"  y="180" text-anchor="middle">01 · INGEST</text>
+              <text class="ndesc"  x="90"  y="201" text-anchor="middle">Pull &amp; tag</text>
+              <text class="ndesc"  x="90"  y="214" text-anchor="middle">data-room files</text>
+            </g>
+            <g class="node n1">
+              <rect x="174" y="150" width="100" height="92" rx="12" fill="#181c27" stroke="#2c3242"></rect>
+              <text class="ntitle" x="224" y="180" text-anchor="middle">02 · NORMALIZE</text>
+              <text class="ndesc"  x="224" y="201" text-anchor="middle">Add-backs +</text>
+              <text class="ndesc"  x="224" y="214" text-anchor="middle">one-off flags</text>
+            </g>
+            <g class="node n2">
+              <rect x="308" y="150" width="100" height="92" rx="12" fill="#181c27" stroke="#2c3242"></rect>
+              <text class="ntitle" x="358" y="180" text-anchor="middle">03 · DATABOOK</text>
+              <text class="ndesc"  x="358" y="201" text-anchor="middle">Populate</text>
+              <text class="ndesc"  x="358" y="214" text-anchor="middle">schedules</text>
+            </g>
+            <g class="node n3">
+              <rect x="442" y="150" width="100" height="92" rx="12" fill="#181c27" stroke="#2c3242"></rect>
+              <text class="ntitle" x="492" y="180" text-anchor="middle">04 · FINDINGS</text>
+              <text class="ndesc"  x="492" y="201" text-anchor="middle">Draft sourced</text>
+              <text class="ndesc"  x="492" y="214" text-anchor="middle">observations</text>
+            </g>
+
+            <!-- flow arrows between nodes -->
+            <line class="edge e1" x1="140" y1="196" x2="170" y2="196" stroke="#6f7dff" stroke-width="1.4" marker-end="url(#ah)"></line>
+            <line class="edge e2" x1="274" y1="196" x2="304" y2="196" stroke="#6f7dff" stroke-width="1.4" marker-end="url(#ah)"></line>
+            <line class="edge e3" x1="408" y1="196" x2="438" y2="196" stroke="#6f7dff" stroke-width="1.4" marker-end="url(#ah)"></line>
+
+            <!-- output + human-in-the-loop -->
+            <line class="edge e4" x1="542" y1="196" x2="556" y2="196" stroke="#6f7dff" stroke-width="1.4"></line>
+            <g class="edge e4">
+              <circle cx="566" cy="196" r="9" fill="#10A37F"></circle>
+              <path d="M561.5,196 l3,3 l6,-6.5" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path>
+            </g>
+
+            <!-- captions -->
+            <text class="ndesc" x="16"  y="232" text-anchor="middle" style="fill:#7d8498">in</text>
+            <text class="ndesc" x="566" y="222" text-anchor="middle" style="fill:#54d6b0">human</text>
+            <text class="ndesc" x="566" y="233" text-anchor="middle" style="fill:#54d6b0">review</text>
+          </svg>
+        </div>
+        <p class="flow-foot">Data room in → first-cut databook &amp; sourced findings out. An analyst signs off before anything ships.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERTISE -->
+  <section class="section" id="expertise">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">What I bring</p>
+        <h2>The rare overlap this role needs: deal fluency and the ability to build.</h2>
+      </div>
+      <div class="grid-3">
+        <div class="cap"><div class="k">Agentic AI</div><h3>Multi-agent workflows</h3><p>Designing agent pipelines that automate document-heavy diligence steps — always with a human checkpoint.</p></div>
+        <div class="cap"><div class="k">ML</div><h3>Applied machine learning</h3><p>End-to-end models in Python and R: feature engineering, training, validation. Pricing, classification, risk scoring.</p></div>
+        <div class="cap"><div class="k">Diligence</div><h3>Transaction services</h3><p>Hands-on across PMI, transaction and transformation projects at Deloitte Strategy, Risk &amp; Transaction.</p></div>
+        <div class="cap"><div class="k">Reporting</div><h3>Financial reporting</h3><p>Audit &amp; assurance grounding — balance-sheet and P&amp;L analysis, IFRS 18/19, PE valuation support.</p></div>
+        <div class="cap"><div class="k">Data</div><h3>Data &amp; analytics</h3><p>SQL and Tableau, plus data-quality and data-management transformation work in asset management.</p></div>
+        <div class="cap"><div class="k">Bridge</div><h3>Deal team ↔ build</h3><p>Translating between practitioners and technical delivery: 15+ proposals, workshops and enablement sessions.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section class="section" id="work">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">Projects</p>
+        <h2>Three pieces of evidence.</h2>
+        <p>One agentic build for the deal room, one applied-ML win, and one research project on exactly the question this role raises — where automation ends and human judgment begins.</p>
+      </div>
+      <div class="deals">
+        <article class="deal flag">
+          <div class="tags"><span class="tag lead">Agentic AI</span><span class="tag">Automation</span><span class="tag">Building →</span></div>
+          <h3>Data-room diligence copilot</h3>
+          <div class="role">Self-directed · [in progress]</div>
+          <p>A multi-agent workflow that ingests data-room financials, drafts EBITDA add-backs and one-off flags with citations back to source, and assembles a first-cut databook for analyst review — automating the QoE groundwork while keeping a human in the loop.</p>
+          <div class="finding">Stack · Python, LLM orchestration (<b>[LangGraph]</b>), retrieval, <b>[Streamlit]</b> UI. <b>[Add a repo or short demo video link.]</b></div>
+        </article>
+        <article class="deal">
+          <div class="tags"><span class="tag lead">Applied ML</span><span class="tag">Pricing</span><span class="tag">1st place</span></div>
+          <h3>ML pricing model — fire-insurance premiums</h3>
+          <div class="role">EDHEC × Groupe Crédit Agricole</div>
+          <p>Built and tuned a machine-learning model to price fire-insurance premiums from risk features. Won 1st place among the competing student teams.</p>
+          <div class="finding">Stack · Python, <b>[scikit-learn / XGBoost]</b>, feature engineering, model validation.</div>
+        </article>
+        <article class="deal">
+          <div class="tags"><span class="tag lead">Research</span><span class="tag">NN / XGBoost</span><span class="tag">Audit</span></div>
+          <h3>Do strong ML models dull auditor scepticism?</h3>
+          <div class="role">BSc thesis · Radboud University</div>
+          <p>Investigated how high-performing algorithms (neural networks, XGBoost) affect auditors' professional scepticism — the human-judgment fault line in automated assurance.</p>
+          <div class="finding">Grade · <b>7.5</b>. Directly relevant to keeping reviewers sharp in AI-assisted diligence.</div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section class="section" id="experience">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">Experience</p>
+        <h2>Three rotations at Deloitte, audit through transaction.</h2>
+      </div>
+      <div class="timeline">
+        <div class="tl">
+          <div class="tl-when">Dec 2025 – Jun 2026<br>Frankfurt</div>
+          <div class="tl-what">
+            <h3>Working Student — Finance Transformation</h3>
+            <div class="org">Deloitte · Strategy, Risk &amp; Transaction</div>
+            <p>Data-driven analysis and research on tokenization in insurance; independently developed core workstreams.</p>
+          </div>
+        </div>
+        <div class="tl">
+          <div class="tl-when">Jan 2025 – Jul 2025<br>Frankfurt</div>
+          <div class="tl-what">
+            <h3>Intern — Finance Transformation</h3>
+            <div class="org">Deloitte · Strategy, Risk &amp; Transaction</div>
+            <p>Post-merger integration and asset-management transformation. Structured workstreams and produced 15+ proposal and analysis deliverables (PMI, IFRS 18, AI Act, data management). Invited into the Deloitte Talent Community for standout performance.</p>
+          </div>
+        </div>
+        <div class="tl">
+          <div class="tl-when">Mar 2024 – Jun 2024<br>Frankfurt</div>
+          <div class="tl-what">
+            <h3>Intern — Audit &amp; Assurance, FSI</h3>
+            <div class="org">Deloitte</div>
+            <p>Analysis of balance-sheet and P&amp;L positions, private-equity valuations, CSRD reporting and IFRS 18/19; handled short-notice accounting ad-hoc requests.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TOOLKIT + EDUCATION -->
+  <section class="section" id="toolkit">
+    <div class="wrap two-col">
+      <div class="stack">
+        <h4>Toolkit</h4>
+        <div class="chips">
+          <span class="chip">Python — advanced</span>
+          <span class="chip">R — advanced</span>
+          <span class="chip">SQL — advanced</span>
+          <span class="chip">Tableau — advanced</span>
+          <span class="chip">LLM agents</span>
+          <span class="chip">[LangGraph]</span>
+          <span class="chip">IFRS</span>
+          <span class="chip">MS Office</span>
+        </div>
+        <h4 style="margin-top:30px;">How I work</h4>
+        <p style="margin:0;color:var(--ink-soft);font-size:15.5px;line-height:1.6;">
+          Automate the repetitive, source every claim, and keep a human on the judgment calls.
+          The goal isn't to replace the deal team — it's to hand them a faster first draft they can trust.
+        </p>
+      </div>
+      <div class="stack">
+        <h4>Education &amp; languages</h4>
+        <ul class="creds">
+          <li><span class="c-name">MSc Data Analytics &amp; AI — Data Science</span><span class="c-meta">EDHEC Business School<br>2025–26 · GPA 3.7</span></li>
+          <li><span class="c-name">BSc Business Administration — Economics</span><span class="c-meta">Radboud University<br>2020–23</span></li>
+          <li><span class="c-name">Languages</span><span class="c-meta">German — native<br>English — fluent · Spanish — basic</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+    <p class="eyebrow">Let's talk</p>
+    <h2>Ready to build the<br>AI workstream <span class="accent">with you.</span></h2>
+    <div class="contact-row">
+      <a class="c-btn solid" href="mailto:moritzlumma2000@web.de">moritzlumma2000@web.de</a>
+      <a class="c-btn ghost" href="https://linkedin.com/in/[your-handle]" target="_blank" rel="noopener">LinkedIn ↗</a>
+      <a class="c-btn ghost" href="[CV.pdf]">Download CV ↓</a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="wrap">
+  <span>© <span id="yr"></span> Moritz Johannes Lumma · [Frankfurt · Lille]</span>
+  <span class="mono">Built to show the work.</span>
+</footer>
+
+<script>document.getElementById('yr').textContent=new Date().getFullYear();</script>
+</body>
+</html>
