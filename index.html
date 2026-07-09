@@ -73,6 +73,11 @@
   .flow .ntitle{font-family:"IBM Plex Mono",monospace;font-size:9.5px;font-weight:600;letter-spacing:.04em;fill:var(--cobalt-lite);}
   .flow .ndesc{font-family:"IBM Plex Mono",monospace;font-size:8.4px;fill:#9aa0b2;}
   .flow-foot{font-size:12px;color:#8b91a4;margin-top:10px;line-height:1.45;}
+  .snapshot{display:grid;gap:12px;margin-top:18px;}
+  .snap-row{border:1px solid #2c3242;background:#181c27;border-radius:12px;padding:12px 14px;}
+  .snap-k{font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--cobalt-lite);margin-bottom:4px;}
+  .snap-v{font-size:14px;line-height:1.45;color:#e8eaf1;}
+  .snap-v b{color:#fff;font-weight:600;}
 
   /* SECTION SHELL */
   .section{padding:66px 0;border-top:1px solid var(--line);}
@@ -101,6 +106,15 @@
   .deal p{margin:0;font-size:15.5px;color:var(--ink-soft);}
   .deal .finding{margin-top:14px;padding-top:14px;border-top:1px solid var(--line);font-size:14.5px;}
   .deal .finding b{color:var(--cobalt);font-family:"IBM Plex Mono",monospace;font-weight:600;}
+  .project-shots{margin-top:18px;display:grid;gap:14px;}
+  .shot-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;}
+  .shot{margin:0;border:1px solid var(--line);border-radius:14px;background:#fff;overflow:hidden;}
+  .shot a{display:block;}
+  .shot img{width:100%;display:block;background:#fff;}
+  .shot-wide img{max-height:360px;object-fit:cover;object-position:left top;}
+  .shot-grid .shot img{height:235px;object-fit:cover;object-position:left top;}
+  .shot figcaption{padding:10px 13px;font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--mute);line-height:1.45;border-top:1px solid var(--line);}
+  .shot-label{color:var(--cobalt);font-weight:600;}
 
   /* EXPERIENCE TIMELINE */
   .timeline{border-top:1px solid var(--line);}
@@ -145,6 +159,8 @@
     .tl{grid-template-columns:1fr;gap:6px;}
     .nav-links a:not(.nav-cta){display:none;}
     .contact{padding:46px 26px;border-radius:18px;}
+    .shot-grid{grid-template-columns:1fr;}
+    .shot-wide img,.shot-grid .shot img{height:auto;max-height:none;object-fit:contain;}
   }
   @media(prefers-reduced-motion:reduce){
     .reveal,.flow .orch,.flow .node,.flow .edge{animation:none;opacity:1;transform:none;}
@@ -188,80 +204,36 @@
         </div>
       </div>
 
-      <!-- SIGNATURE: AGENTIC DILIGENCE PIPELINE -->
-      <div class="flow-card reveal d3" aria-label="An agentic pipeline automating transaction-diligence steps under human review">
+      <!-- SIGNATURE: CURRENT PROJECT SNAPSHOT -->
+      <div class="flow-card reveal d3" aria-label="Current project snapshot for DealCheck AI">
         <div class="flow-head">
-          <span class="t">Agentic diligence pipeline</span>
-          <span class="u">concept</span>
+          <span class="t">DealCheck AI</span>
+          <span class="u">current portfolio build</span>
         </div>
-        <div class="flow">
-          <svg viewBox="0 0 600 360" role="img">
-            <defs>
-              <marker id="ah" markerWidth="8" markerHeight="8" refX="5" refY="3" orient="auto">
-                <path d="M0,0 L6,3 L0,6 Z" fill="#6f7dff"></path>
-              </marker>
-            </defs>
-
-            <!-- orchestrator -->
-            <g class="orch">
-              <rect x="40" y="46" width="520" height="42" rx="9" fill="#2236FF"></rect>
-              <text x="300" y="72" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="13" letter-spacing="1.5" fill="#fff">AGENTIC&#160;&#160;ORCHESTRATOR</text>
-            </g>
-
-            <!-- coordination drop-lines -->
-            <line class="edge e0" x1="90"  y1="88" x2="90"  y2="150" stroke="#454b60" stroke-dasharray="2 3"></line>
-            <line class="edge e0" x1="224" y1="88" x2="224" y2="150" stroke="#454b60" stroke-dasharray="2 3"></line>
-            <line class="edge e0" x1="358" y1="88" x2="358" y2="150" stroke="#454b60" stroke-dasharray="2 3"></line>
-            <line class="edge e0" x1="492" y1="88" x2="492" y2="150" stroke="#454b60" stroke-dasharray="2 3"></line>
-
-            <!-- input arrow -->
-            <line class="edge e0" x1="6" y1="196" x2="26" y2="196" stroke="#6f7dff" stroke-width="1.4" marker-end="url(#ah)"></line>
-
-            <!-- nodes -->
-            <g class="node n0">
-              <rect x="40"  y="150" width="100" height="92" rx="12" fill="#181c27" stroke="#2c3242"></rect>
-              <text class="ntitle" x="90"  y="180" text-anchor="middle">01 · INGEST</text>
-              <text class="ndesc"  x="90"  y="201" text-anchor="middle">Pull &amp; tag</text>
-              <text class="ndesc"  x="90"  y="214" text-anchor="middle">data-room files</text>
-            </g>
-            <g class="node n1">
-              <rect x="174" y="150" width="100" height="92" rx="12" fill="#181c27" stroke="#2c3242"></rect>
-              <text class="ntitle" x="224" y="180" text-anchor="middle">02 · NORMALIZE</text>
-              <text class="ndesc"  x="224" y="201" text-anchor="middle">Add-backs +</text>
-              <text class="ndesc"  x="224" y="214" text-anchor="middle">one-off flags</text>
-            </g>
-            <g class="node n2">
-              <rect x="308" y="150" width="100" height="92" rx="12" fill="#181c27" stroke="#2c3242"></rect>
-              <text class="ntitle" x="358" y="180" text-anchor="middle">03 · DATABOOK</text>
-              <text class="ndesc"  x="358" y="201" text-anchor="middle">Populate</text>
-              <text class="ndesc"  x="358" y="214" text-anchor="middle">schedules</text>
-            </g>
-            <g class="node n3">
-              <rect x="442" y="150" width="100" height="92" rx="12" fill="#181c27" stroke="#2c3242"></rect>
-              <text class="ntitle" x="492" y="180" text-anchor="middle">04 · FINDINGS</text>
-              <text class="ndesc"  x="492" y="201" text-anchor="middle">Draft sourced</text>
-              <text class="ndesc"  x="492" y="214" text-anchor="middle">observations</text>
-            </g>
-
-            <!-- flow arrows between nodes -->
-            <line class="edge e1" x1="140" y1="196" x2="170" y2="196" stroke="#6f7dff" stroke-width="1.4" marker-end="url(#ah)"></line>
-            <line class="edge e2" x1="274" y1="196" x2="304" y2="196" stroke="#6f7dff" stroke-width="1.4" marker-end="url(#ah)"></line>
-            <line class="edge e3" x1="408" y1="196" x2="438" y2="196" stroke="#6f7dff" stroke-width="1.4" marker-end="url(#ah)"></line>
-
-            <!-- output + human-in-the-loop -->
-            <line class="edge e4" x1="542" y1="196" x2="556" y2="196" stroke="#6f7dff" stroke-width="1.4"></line>
-            <g class="edge e4">
-              <circle cx="566" cy="196" r="9" fill="#10A37F"></circle>
-              <path d="M561.5,196 l3,3 l6,-6.5" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path>
-            </g>
-
-            <!-- captions -->
-            <text class="ndesc" x="16"  y="232" text-anchor="middle" style="fill:#7d8498">in</text>
-            <text class="ndesc" x="566" y="222" text-anchor="middle" style="fill:#54d6b0">human</text>
-            <text class="ndesc" x="566" y="233" text-anchor="middle" style="fill:#54d6b0">review</text>
-          </svg>
+        <p style="margin:10px 0 0;font-size:17px;line-height:1.55;color:#e8eaf1;">
+          A claim-validation workflow for <b>transaction diligence</b> built in n8n.
+          It tests management statements against underlying deal evidence and turns the output
+          into a structured review pack for the deal team.
+        </p>
+        <div class="snapshot">
+          <div class="snap-row">
+            <div class="snap-k">Input</div>
+            <div class="snap-v">Management presentation, financials, customer data and interview notes.</div>
+          </div>
+          <div class="snap-row">
+            <div class="snap-k">Workflow</div>
+            <div class="snap-v">Extract claims → validate against evidence → score risk → suggest follow-up questions.</div>
+          </div>
+          <div class="snap-row">
+            <div class="snap-k">Outputs</div>
+            <div class="snap-v"><b>Claim Ledger</b>, <b>Red Flags</b> and <b>Request List Gaps</b> written to Google Sheets.</div>
+          </div>
+          <div class="snap-row">
+            <div class="snap-k">Role of AI</div>
+            <div class="snap-v">Accelerates hypothesis generation and evidence checks, while final judgment stays with the analyst.</div>
+          </div>
         </div>
-        <p class="flow-foot">Data room in → first-cut databook &amp; sourced findings out. An analyst signs off before anything ships.</p>
+        <p class="flow-foot">Built to show how agentic AI can support diligence without replacing consultant judgment.</p>
       </div>
     </div>
   </section>
@@ -294,13 +266,52 @@
       </div>
       <div class="deals">
         <article class="deal flag">
-          <div class="tags"><span class="tag lead">Agentic AI</span><span class="tag">Automation</span><span class="tag">v1 built</span></div>
-          <h3>Data-room diligence copilot</h3>
-          <div class="role">Self-directed · v1 built</div>
-          <p>A multi-agent workflow that ingests data-room financials, drafts EBITDA add-backs and one-off flags with citations back to source, and assembles a first-cut databook for analyst review. Aautomating the QoE groundwork while keeping a human in the loop.</p>
+          <div class="tags"><span class="tag lead">Agentic AI</span><span class="tag">n8n</span><span class="tag">v1 built</span></div>
+          <h3>DealCheck AI — claim validation agent</h3>
+          <div class="role">Self-directed · n8n MVP built</div>
+          <p>An agentic n8n workflow that extracts testable management claims from a presentation, validates them against financials, customer data and interview notes, and writes a structured Claim Ledger, Red Flags and Request List Gaps to Google Sheets. It accelerates evidence validation while keeping analyst judgment in the loop.</p>
+          <div class="project-shots" aria-label="DealCheck AI project screenshots">
+            <figure class="shot shot-wide">
+              <a href="assets/dealcheck-workflow.png" target="_blank" rel="noopener">
+                <img src="assets/dealcheck-workflow.png" alt="n8n workflow for DealCheck AI showing claim extraction, evidence validation, parsing, red-flag filtering and Google Sheets outputs" loading="lazy">
+              </a>
+              <figcaption><span class="shot-label">Workflow</span> · n8n agent pipeline from claim extraction to Claim Ledger, Red Flags and Request List Gaps.</figcaption>
+            </figure>
+            <div class="shot-grid">
+              <figure class="shot">
+                <a href="assets/dealcheck-claim-ledger.png" target="_blank" rel="noopener">
+                  <img src="assets/dealcheck-claim-ledger.png" alt="Claim Ledger output with evidence summary, risk level, deal relevance and management questions" loading="lazy">
+                </a>
+                <figcaption><span class="shot-label">Claim Ledger</span> · full evidence review with status, risk level and deal relevance.</figcaption>
+              </figure>
+              <figure class="shot">
+                <a href="assets/dealcheck-red-flags-overview.png" target="_blank" rel="noopener">
+                  <img src="assets/dealcheck-red-flags-overview.png" alt="Red Flags output filtered from the claim validation workflow" loading="lazy">
+                </a>
+                <figcaption><span class="shot-label">Red Flags</span> · contradicted or high-risk findings separated for reviewer attention.</figcaption>
+              </figure>
+              <figure class="shot">
+                <a href="assets/dealcheck-red-flags-detail.png" target="_blank" rel="noopener">
+                  <img src="assets/dealcheck-red-flags-detail.png" alt="Red Flags detail showing request list gaps and timestamps" loading="lazy">
+                </a>
+                <figcaption><span class="shot-label">Risk detail</span> · red flags linked to suggested questions and request-list gaps.</figcaption>
+              </figure>
+              <figure class="shot">
+                <a href="assets/dealcheck-request-gaps-overview.png" target="_blank" rel="noopener">
+                  <img src="assets/dealcheck-request-gaps-overview.png" alt="Request List Gaps output with evidence summaries and missing information requests" loading="lazy">
+                </a>
+                <figcaption><span class="shot-label">Request List Gaps</span> · missing documents or data points translated into diligence requests.</figcaption>
+              </figure>
+              <figure class="shot">
+                <a href="assets/dealcheck-request-gaps-detail.png" target="_blank" rel="noopener">
+                  <img src="assets/dealcheck-request-gaps-detail.png" alt="Request List Gaps detail showing deal relevance and suggested management questions" loading="lazy">
+                </a>
+                <figcaption><span class="shot-label">Management questions</span> · follow-up questions generated from the evidence gaps.</figcaption>
+              </figure>
+            </div>
+          </div>
           <div class="finding">
-            Stack · Python, LangGraph, LangChain, pydantic, pandas, structured LLM outputs.
-            <a href="https://github.com/dy7p9qbtmv-glitch/vdr-diligence-agent-langgraph" target="_blank" rel="noopener">GitHub repo ↗</a>
+            Stack · n8n, OpenAI, Google Sheets, structured JSON outputs, prompt engineering.
           </div>
         </article>
         <article class="deal">
@@ -368,7 +379,7 @@
           <span class="chip">SQL — advanced</span>
           <span class="chip">Tableau — advanced</span>
           <span class="chip">LLM agents</span>
-          <span class="chip">LangGraph</span>
+          <span class="chip">n8n</span>
           <span class="chip">IFRS</span>
           <span class="chip">MS Office</span>
         </div>
